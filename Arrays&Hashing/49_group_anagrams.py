@@ -12,3 +12,6 @@ class Solution:
             res[sortedS].append(s)
         
         return list(res.values())
+    
+    def groupAnagrams2(self, strs: list[str]) -> list[list[str]]:
+        
