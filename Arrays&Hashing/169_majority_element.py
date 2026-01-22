@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Solution:
     def majorityElement(self, nums: list[int]) -> int:
         """
@@ -18,3 +20,18 @@ class Solution:
             end += 1
 
         return 0
+    
+    def majorityElement2(self, nums: list[int]) -> int:
+        nums.sort()
+        return nums[len(nums) // 2]
+    
+    def majorityElement3(self, nums: list[int]) -> int:
+        count = defaultdict(int)
+        res = maxCount = 0
+        for num in nums:
+            count[num] += 1
+            if count[num] >= maxCount:
+                maxCount = count[num]
+                res = num
+        
+        return res
